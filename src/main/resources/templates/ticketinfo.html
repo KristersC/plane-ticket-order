@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Flight info</title>
+</head>
+<body>
+<table style="width:100%">
+    <tr>
+        <th>Destination</th>
+        <td th:text="${flight.destination}"/>
+    </tr>
+    <tr>
+        <th>Time of departure</th>
+        <td th:text="${flight.time}"/>
+    </tr>
+    <tr>
+        <th>Estimated time of flight</th>
+        <td th:text="${flight.eta}"/>
+    </tr>
+    <tr>
+        <th>Price of ticket</th>
+        <td th:text="${flight.price}"/>
+    </tr>
+    <tr>
+        <th>Seats left</th>
+        <td th:text="${flight.seats}"/>
+    </tr>
+    <tr>
+        <th>Short description</th>
+        <td th:text="${flight.description}"/>
+    </tr>
+    <tr>
+        <th>Buy options</th>
+        <td>
+            <form action="#" th:action="@{/buyticket}">
+                <button type="submit">Bank 1</button>
+            </form>
+            <form action="#" th:action="@{/buyticket}">
+                <button type="submit">Bank 2</button>
+            </form>
+            <form action="#" th:action="@{/buyticket}">
+                <button type="submit">Credit card</button>
+            </form>
+
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

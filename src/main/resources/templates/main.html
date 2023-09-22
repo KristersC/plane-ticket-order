@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Plane ticket page</title>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        form {
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <form sec:authorize="hasRole('ADMIN')" action="#" th:action="@{/addflight}">
+        <button type="submit">Add Flight</button>
+    </form>
+
+    <form action="#" th:action="@{/logout}">
+        <button type="submit">Logout</button>
+    </form>
+
+    <form action="#" th:action="@{/login}">
+        <button type="submit">Login</button>
+    </form>
+
+    <div sec:authorize="isAuthenticated()">
+        Authenticated as <span sec:authentication="name"></span></div>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Destination</th>
+            <th>Time</th>
+            <th>Estimated time</th>
+            <th>Price</th>
+            <th>Seats left</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="flight: ${flights}">
+            <td th:text="${flight.destination}"/>
+            <td th:text="${flight.time}"/>
+            <td th:text="${flight.eta}"/>
+            <td th:text="${flight.price}"/>
+            <td th:text="${flight.seats}"/>
+            <td>
+                <button th:onclick="'window.location.href=\'/ticketinfo?ID=' + ${flightStat.index} + '\''">Buy ticket</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

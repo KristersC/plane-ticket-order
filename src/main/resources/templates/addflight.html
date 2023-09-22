@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add flight</title>
+</head>
+<body>
+    <form action="#" th:action="@{/addflight}" method="post" th:object="${flight}">
+        <p>Destination: <input type="text" th:field="*{destination}"></p>
+        <p>Time: <input type="text" th:field="*{time}"></p>
+        <p>Estimated time: <input type="text" th:field="*{eta}"></p>
+        <p>Price: <input type="text" th:field="*{price}"></p>
+        <input type="submit" value="Add flight">
+    </form>
+</body>
+</html>
