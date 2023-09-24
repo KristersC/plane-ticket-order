@@ -67,12 +67,12 @@ public class RestController {
         model.addAttribute("flight", flights.get(ID));
         return "ticketinfo";
     }
-
+/*
     @GetMapping("/error")
     public String error(Model model){
         return "error";
     }
-
+*/
     @GetMapping("/buyticket")
     public String buyticket(Model model){
         return "buyticket";

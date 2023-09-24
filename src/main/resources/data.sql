@@ -1,6 +1,10 @@
-CREATE TABLE countires;
-INSERT INTO countries (id, name) VALUES (1, 'USA');
-INSERT INTO countries (id, name) VALUES (2, 'France');
-INSERT INTO countries (id, name) VALUES (3, 'Brazil');
-INSERT INTO countries (id, name) VALUES (4, 'Italy');
-INSERT INTO countries (id, name) VALUES (5, 'Canada');
+DROP TABLE countries;
+CREATE TABLE countries(
+    id int,
+    country varchar(255)
+);
+INSERT INTO countries (id, country) VALUES (1, 'USA');
+INSERT INTO countries (id, country) VALUES (2, 'France');
+INSERT INTO countries (id, country) VALUES (3, 'Brazil');
+INSERT INTO countries (id, country) VALUES (4, 'Italy');
+INSERT INTO countries (id, country) VALUES (5, 'Canada');
