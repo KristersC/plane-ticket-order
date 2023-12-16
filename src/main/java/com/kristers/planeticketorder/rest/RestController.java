@@ -1,7 +1,10 @@
 package com.kristers.planeticketorder.rest;
 
 import com.kristers.planeticketorder.Flight;
+import com.kristers.planeticketorder.FlightDB;
 import com.kristers.planeticketorder.PlaneTicketOrderApplication;
+import com.kristers.planeticketorder.services.FlightService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.kristers.planeticketorder.PlaneTicketOrderApplication.flights;
 
@@ -20,7 +24,8 @@ import static com.kristers.planeticketorder.PlaneTicketOrderApplication.flights;
 public class RestController {
 
     //ArrayList<Flight> flights = new ArrayList<Flight>();
-
+    @Autowired
+    private FlightService flightService;
 
     @GetMapping("/")
     String test(Model model){
@@ -28,6 +33,8 @@ public class RestController {
         //flights.add(new Flight("Riga", "17:00", "2 hours", "20"));
         //model.addAttribute(flights);
         model.addAttribute("flights", flights);
+        List<FlightDB> flight = flightService.list();
+        System.out.println(flight.get(2).toString());
         return "main";
     }
 

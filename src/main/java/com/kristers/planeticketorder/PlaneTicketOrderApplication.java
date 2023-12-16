@@ -1,6 +1,8 @@
 package com.kristers.planeticketorder;
 
 import com.kristers.planeticketorder.rest.RestController;
+import com.kristers.planeticketorder.services.FlightService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,6 +12,8 @@ import java.util.List;
 
 @SpringBootApplication
 public class PlaneTicketOrderApplication {
+
+
 
 	public static ArrayList<Flight> flights = new ArrayList<Flight>();
 
